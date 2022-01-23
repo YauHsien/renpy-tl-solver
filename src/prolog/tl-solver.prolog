@@ -42,7 +42,8 @@ translate(Total, Count, Rows, Results) :-
 
 translate(_Total, _Count, [], Acc, Results) :-
     % 這裡最後走完翻譯行程了。
-    reverse(Acc, Results).
+    enfunc(Acc, A1),
+    reverse(A1, Results).
 translate(Total, Count, [row(Atom)|Rows], Acc, Results) :-
     prog(Count, Atom, Result, C1), !,
     % 這裡是往下繼續翻譯行程。
